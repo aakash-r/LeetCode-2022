@@ -1,11 +1,10 @@
 class Solution:
     def decodeString(self, s: str) -> str:
-        ans = ''
         cur = ''
         stack = []
         curnum = ''
         for i in s:
-            #print(i,stack, cur, ans)
+            #print(i,stack, cur)
             if i.isdigit():
                 curnum+=i
             elif i == '[':
@@ -25,10 +24,6 @@ class Solution:
                         n = int(stack.pop())        
                         cur = cur*n
                         break
-                #stack.append(ans)
-                #ans = ''
-                
-                
                 
         return ''.join(stack) + cur
         
