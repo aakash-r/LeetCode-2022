@@ -16,7 +16,7 @@ class Solution:
         back = back[1:]
         back.append(1)
         forw = forw[:-1]
-        print(forw,back)
+        #print(forw,back)
         return [i*j for i,j in zip(forw,back)]
             
         
