@@ -5,7 +5,7 @@ class Solution:
         stack = []
         curnum = ''
         for i in s:
-            print(i,stack, cur, ans)
+            #print(i,stack, cur, ans)
             if i.isdigit():
                 curnum+=i
             elif i == '[':
