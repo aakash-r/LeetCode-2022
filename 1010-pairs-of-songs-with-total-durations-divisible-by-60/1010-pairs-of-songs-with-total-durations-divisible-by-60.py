@@ -11,7 +11,7 @@ class Solution:
             if dic.get(req,-1)!=-1:
                 a+=dic[req]
             dic[i] = dic.get(i,0)+1
-        print(dic)
+        #print(dic)
         if dic.get(0,-1)!=-1:
             a+= int((dic[0]*(dic[0]-1))/2)
         return a
