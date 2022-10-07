@@ -1,7 +1,5 @@
 class Solution: 
     def numTeams(self, rating: List[int]) -> int:
-        
-        
         ans=0
         for i,j in enumerate(rating):
             ll,lh,rl,rh = 0,0,0,0
@@ -16,7 +14,6 @@ class Solution:
                 elif rating[k]<j:
                     rl+=1
             ans+= (ll*rh) + (lh*rl)
-            #print(j,ll,lh,rl,rh)
         return ans
             
             
