@@ -16,7 +16,7 @@ class Solution:
                 elif rating[k]<j:
                     rl+=1
             ans+= (ll*rh) + (lh*rl)
-            print(j,ll,lh,rl,rh)
+            #print(j,ll,lh,rl,rh)
         return ans
             
             
