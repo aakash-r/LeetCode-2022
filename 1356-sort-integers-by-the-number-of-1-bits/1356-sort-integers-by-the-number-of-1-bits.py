@@ -11,7 +11,6 @@ class Solution:
         dic = defaultdict(list)
         for i in arr:
             dic[self.ones(i)].append(i)
-        #print(dic)
         ans = []
         for j,i in sorted(dic.items()):
             ans += sorted(i)
