@@ -1,24 +1,23 @@
 class Solution:
+    
+    
+    #better sol
     def countBinarySubstrings(self, s: str) -> int:
-        zero = 0
-        one = 0
-        if s.count('0') == len(s) or s.count('1')==len(s):
-            return 0
-        zp = s.index('0')
-        op = s.index('1')
+        ptr = 0
+        s=s+'2'
+        groups = []
+        count = 1
+        while ptr<len(s)-1:
+            
+            if s[ptr]!=s[ptr+1]:
+                groups.append(count)
+                count = 0
+            count+=1
+            ptr+=1
         ans = 0
-        while zp<len(s) and op<len(s):
-            while zp<len(s) and s[zp]=='0':
-                zero+=1
-                zp+=1
-            while op<len(s) and s[op]=='1':
-                one+=1
-                op+=1
-            n = min(zero,one)
-            zero = 0
-            one = 0
-            zp,op=op,zp
-            ans += n
+        for i in range(len(groups)-1):
+            ans+=min(groups[i],groups[i+1])
+            
         return ans
                 
             
