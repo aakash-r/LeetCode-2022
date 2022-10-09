@@ -13,7 +13,6 @@ class CustomStack:
         
 
     def pop(self) -> int:
-        #print(self.stack)
         if self.size>0:
             self.size-=1
             return self.stack.pop()
@@ -24,7 +23,6 @@ class CustomStack:
     def increment(self, k: int, val: int) -> None:
         c=0
         k = min(k,self.size)
-        print(k,self.stack)
         while c<k:
             
             self.stack[c]+=val
