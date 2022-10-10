@@ -4,7 +4,6 @@ class Solution:
         for i in strs:
             l = ''.join(sorted(i))
             d[l].append(i)
-        #print(d)
         
         return d.values()
             
