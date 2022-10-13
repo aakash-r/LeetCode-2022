@@ -7,16 +7,17 @@ class Solution:
         
         def comsum(i,total,cur):
             if total == target:
-                res.append(cur)
+                res.append(cur.copy())
                 return
         
             if total>target or i>=len(candidates):
                 return 
             
             
-            comsum(i+1,total,cur.copy())
+            comsum(i+1,total,cur)
             cur.append(candidates[i])
-            comsum(i,total + candidates[i], cur.copy())
+            comsum(i,total + candidates[i], cur)
+            cur.pop()
            
         comsum(0,0,[])
         return res
