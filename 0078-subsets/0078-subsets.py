@@ -10,10 +10,10 @@ class Solution:
                 res.append(cur.copy())
                 return 
             
-            dfs(i+1,cur.copy())
+            dfs(i+1,cur)
             cur.append(nums[i])
-            dfs(i+1,cur.copy())
-            #cur.pop()
+            dfs(i+1,cur)
+            cur.pop()
         dfs(0,[])
         return res
                 
