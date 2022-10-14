@@ -20,7 +20,7 @@ class Solution:
             else:
                 prev = None
         if prev is not None:
-            if prev[0]==-1 and prev[1]!=ans[-1]:
+            if prev[1]!=ans[-1]:
                 ans+=prev[1]
             else:
                 return ''
