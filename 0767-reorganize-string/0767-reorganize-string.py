@@ -20,7 +20,6 @@ class Solution:
             else:
                 prev = None
         if prev is not None:
-            
             return ''
             
         return ans
