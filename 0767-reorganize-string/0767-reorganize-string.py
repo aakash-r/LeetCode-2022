@@ -20,10 +20,8 @@ class Solution:
             else:
                 prev = None
         if prev is not None:
-            if prev[1]!=ans[-1]:
-                ans+=prev[1]
-            else:
-                return ''
+            
+            return ''
             
         return ans
             
