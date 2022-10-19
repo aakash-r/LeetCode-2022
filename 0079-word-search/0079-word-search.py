@@ -1,44 +1,49 @@
-class Solution(object):
-    def exist(self, board, word):
-        """
-        :type board: List[List[str]]
-        :type word: str
-        :rtype: bool
-        """
-        self.ROWS = len(board)
-        self.COLS = len(board[0])
-        self.board = board
-
-        for row in range(self.ROWS):
-            for col in range(self.COLS):
-                if self.backtrack(row, col, word):
+class Solution:
+    def exist(self, board: List[List[str]], word: str) -> bool:
+        m = len(board)
+        n = len(board[0])
+        wl = len(word)
+        
+        
+        def dfs(curpos, wi):
+            #print(type(prev))
+            if wi == wl:
+                return True
+            if curpos[0]>=m or curpos[1]>=n or curpos[0]<0 or curpos[1]<0 or board[curpos[0]][curpos[1]] != word[wi]:
+                return
+            
+           
+                    
+            possible = [(curpos[0]+1,curpos[1]),(curpos[0]-1,curpos[1]),(curpos[0],curpos[1]+1),(curpos[0],curpos[1]-1)]
+            temp = board[curpos[0]][curpos[1]]
+            board[curpos[0]][curpos[1]] = ","
+            for newpos in possible:
+                if dfs(newpos,wi+1):
                     return True
-
-        # no match found after all exploration
+            board[curpos[0]][curpos[1]] = temp
+                            
+        if wl>m*n: return False
+        wdic = {}
+        boarddic = {}
+        for i in range(m):
+            for j in range(n):
+                boarddic[board[i][j]] = boarddic.get(board[i][j],0)+1
+        for l in word:
+            wdic[l]=wdic.get(l,0)+1
+        
+        for i,j in wdic.items():
+            if boarddic.get(i,-1) == -1:
+                return False
+            if boarddic[i]<j:
+                return False
+        
+        
+        for i in range(m):
+            for j in range(n):
+                if dfs((i,j),0):
+                    return True
+                    
         return False
-
-
-    def backtrack(self, row, col, suffix):
-        # bottom case: we find match for each letter in the word
-        if len(suffix) == 0:
-            return True
-
-        # Check the current status, before jumping into backtracking
-        if row < 0 or row == self.ROWS or col < 0 or col == self.COLS \
-                or self.board[row][col] != suffix[0]:
-            return False
-
-        ret = False
-        # mark the choice before exploring further.
-        self.board[row][col] = '#'
-        # explore the 4 neighbor directions
-        for rowOffset, colOffset in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
-            ret = self.backtrack(row + rowOffset, col + colOffset, suffix[1:])
-            # break instead of return directly to do some cleanup afterwards
-            if ret: break
-
-        # revert the change, a clean slate and no side-effect
-        self.board[row][col] = suffix[0]
-
-        # Tried all directions, and did not find any match
-        return ret
+                
+            
+        
