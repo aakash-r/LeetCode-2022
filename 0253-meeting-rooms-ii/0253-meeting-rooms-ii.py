@@ -1,3 +1,5 @@
+#MAXIMUM NO. OF INTERSECTING INTERVALS
+
 class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
         start = sorted([i[0] for i in intervals])
