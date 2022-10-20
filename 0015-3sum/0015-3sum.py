@@ -14,6 +14,8 @@ class Solution:
                 if nums[start]+nums[end]==target:
                     ans.add(tuple(sorted([nums[i],nums[start],nums[end]])))
                     start+=1
+                    if nums[start]==nums[start-1] and start<end:
+                        start+=1
                 elif nums[start]+nums[end]<target: start+=1
                 else: end-=1
         return [list(i) for i in ans]
