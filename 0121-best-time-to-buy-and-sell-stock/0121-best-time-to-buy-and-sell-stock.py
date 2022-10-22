@@ -5,7 +5,8 @@ class Solution:
         for i in prices[1:]:
             if i > msofar:
                 mpro = max(mpro, i-msofar)
-            msofar = min(msofar,i)
+            else:
+                msofar = i
         return mpro
             
         
