@@ -7,7 +7,7 @@ class Solution:
                 return mid
             else:
                 left = 0
-                if nums[mid]>=nums[l]:
+                if nums[mid]>=nums[0]:
                     left = 1
                 
                 if left:
