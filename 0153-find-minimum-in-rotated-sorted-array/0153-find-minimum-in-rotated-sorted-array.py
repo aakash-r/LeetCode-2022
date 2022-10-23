@@ -15,7 +15,7 @@ class Solution:
             
             else:
                 left = 0
-                if nums[mid]>=nums[0]:
+                if nums[mid]>=nums[l]:
                     left = 1
 
                 if left:
