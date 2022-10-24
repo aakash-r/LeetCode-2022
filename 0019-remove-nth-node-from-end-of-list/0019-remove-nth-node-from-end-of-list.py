@@ -3,6 +3,7 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+#TWO PASSSSSSSS
 class Solution:
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
         first=head
