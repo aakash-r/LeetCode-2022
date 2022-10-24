@@ -10,14 +10,11 @@ class Solution:
             curl += 1
             maxc = max(maxc, cur[s[r]])
             
-            if curl - maxc <= k:
-                maxlen = max(maxlen, curl)
-                continue
-            else:
-                while curl - maxc > k:
-                    cur[s[l]] -= 1
-                    curl -= 1
-                    l+=1
+            while curl - maxc > k:
+                cur[s[l]] -= 1
+                curl -= 1
+                l+=1
+            maxlen = max(maxlen, curl)
         return maxlen
                     
             
